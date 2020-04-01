@@ -30,4 +30,27 @@ Steps to enable root Viewport filtering:
 
 (4) Enjoy!
 
+
+## Screenshots
+
+Even though the problem with font hinting is best seen while trying various font sizes, have a few screenshots here for easy reference.
+
+
+The 2d stretch mode:
+
+![2d](screenshot-2d.png)
+
+
+The viewport stretch mode:
+
+![Default, unfiltered Viewport](screenshot-default_viewport.png)
+
+
+The viewport stretch mode with the filter enabled via code:
+
+![Viewport with the filter](screenshot-filtered_viewport.png)
+
+
+## Legal statement
+
 All info here is public domain, can be used without any restrictions.
