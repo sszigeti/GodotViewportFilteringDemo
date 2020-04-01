@@ -1,0 +1,114 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Demo.gd" type="Script" id=1]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://Fonts/FiraSans-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+font_data = SubResource( 1 )
+
+[sub_resource type="DynamicFontData" id=3]
+font_path = "res://Fonts/FiraSans-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=4]
+size = 32
+font_data = SubResource( 3 )
+
+[sub_resource type="Theme" id=5]
+default_font = SubResource( 4 )
+
+[sub_resource type="DynamicFontData" id=6]
+font_path = "res://Fonts/FiraSans-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=7]
+size = 32
+font_data = SubResource( 6 )
+
+[sub_resource type="DynamicFontData" id=8]
+font_path = "res://Fonts/FiraSans-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=9]
+size = 32
+font_data = SubResource( 8 )
+
+[node name="Demo" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 2 )
+text = "Some text"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 103.887
+margin_right = 177.887
+margin_bottom = 20.0
+custom_fonts/font = SubResource( 2 )
+text = "Some other text"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WindowSizes" type="MenuButton" parent="."]
+margin_left = 253.783
+margin_top = 15.4327
+margin_right = 435.783
+margin_bottom = 35.4327
+theme = SubResource( 5 )
+text = "Window size/mode presets"
+flat = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CurrentWindowSize" type="Label" parent="."]
+margin_left = 695.331
+margin_top = 18.8622
+margin_right = 844.331
+margin_bottom = 57.8622
+custom_fonts/font = SubResource( 7 )
+text = "1920, 1080"
+
+[node name="Instructions" type="Label" parent="."]
+margin_left = 77.0
+margin_top = 194.0
+margin_right = 1823.0
+margin_bottom = 1015.0
+custom_fonts/font = SubResource( 7 )
+text = "This is to demonstrate the effects of font hinting at small font sizes, which applies if you are NOT using a so called \"pixel art\" visual style.
+
+By default we are using the \"2d\" stretch mode.
+
+(1) Observe that as you resize the window the 2nd Label (containing the text: \"Some other text\") occasionally wrap into 3 lines (see the 845×548 preset size), but mostly it's 2 lines. Note that the actual rendered pixels keep on changing with the current window size.
+
+(2) Then, change the stretch mode to \"viewport\" instead by going to \"Project/Project Settings\", then \"Display/Window\" and \"Stretch/Mode\". Note that the rendered text's pixels do not change anymore, but by default, Godot does NOT apply any kind of filtering on the root Viewport, so the visuals look ugly and pixelated when not in fullscreen mode.
+
+(3) Finally, enable the \"Viewport filtering\" check button, and compare the visuals. The text will keep its size regardless of window size and everything looks better due to the applied filtering."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CheckButton" type="CheckButton" parent="."]
+margin_left = 73.1307
+margin_top = 865.15
+margin_right = 405.131
+margin_bottom = 912.15
+custom_fonts/font = SubResource( 9 )
+shortcut_in_tooltip = false
+text = "Viewport filtering"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="toggled" from="CheckButton" to="." method="_on_CheckButton_toggled"]
