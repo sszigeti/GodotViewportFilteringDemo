@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Demo.gd" type="Script" id=1]
 
@@ -31,6 +31,15 @@ font_path = "res://Fonts/FiraSans-Regular.ttf"
 [sub_resource type="DynamicFont" id=9]
 size = 32
 font_data = SubResource( 8 )
+
+[sub_resource type="DynamicFontData" id=10]
+font_path = "res://Fonts/FiraSans-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=11]
+size = 29
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 10 )
 
 [node name="Demo" type="Control"]
 anchor_right = 1.0
@@ -108,6 +117,42 @@ margin_bottom = 912.15
 custom_fonts/font = SubResource( 9 )
 shortcut_in_tooltip = false
 text = "Viewport filtering"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1248.0
+margin_top = -142.0
+color = Color( 0.133333, 0.101961, 0.101961, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RequiresGLES2" type="Label" parent="ColorRect/MarginContainer"]
+margin_left = 10.0
+margin_top = 14.0
+margin_right = 1238.0
+margin_bottom = 128.0
+custom_fonts/font = SubResource( 11 )
+custom_colors/font_color = Color( 1, 0.294118, 0.294118, 1 )
+text = "IMPORTANT: with Godot 3.2.stable this hack for enabling texture filtering on the root viewport is ONLY WORKING with GLES2 -- if you're using GLES3 then this hack will have no effect whatsoever. I believe this is a bug."
+autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
